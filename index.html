@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+    <title>PET SHOP</title>
+</head>
+
+<body>
+    <div id="fundo">
+        <div id="logo">
+            <img id="logo" src="pata.jpg" alt="logo">
+        </div>
+
+        <div id="cabecalho">
+            <p id="titulosite">Agendamento Banho e Tosa</p>
+        </div>
+    </div>
+
+    <div>
+        <div id="tabela">
+            <div>
+                <table>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome Do Pet</th>
+                        <th>Raça</th>
+                        <th>Dono Do Pet</th>
+                        <th>Telefone</th>
+                        <th>Endereço</th>
+                        <th>Remover</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="cadastro">
+
+            <h3>Nome Do Pet</h3>
+            <input id="nomepet" type="text" placeholder="Digite o Nome do Pet">
+            <h3>Raça</h3>
+            <input id="raca" type="text" placeholder="Digite a Raça">
+            <h3>Dono Do Pet</h3>
+            <input id="dono" type="text" placeholder="Digite o Nome do Dono">
+            <h3>Telefone</h3>
+            <input id="tell" type="text" placeholder="Digite o Telefone">
+            <h3>Endereço</h3>
+            <input id="end" type="text" placeholder="Digite o Endereço">
+        </div>
+    </div>
+
+    <button id="botao" onclick="agendar()">Agendar</button>
+<script> 
+    function agendar(){
+        var nomepet = document.getElementById("nomepet").value;
+        var raca = document.getElementById("raca").value;
+        var dono = document.getElementById("dono").value;
+        var tell = document.getElementById("tell").value;
+        var end = document.getElementById("end").value;
+
+        var tabela = document.getElementsByTagName("table")[0];
+        var novoId = tabela.rows.length;
+
+        var novaLinha = tabela.insertRow();
+        var celulaId = novaLinha.insertCell();
+        var celulaNomePet = novaLinha.insertCell();
+        var celulaRaca = novaLinha.insertCell();
+        var celulaDono = novaLinha.insertCell();
+        var celulaTell = novaLinha.insertCell();
+        var celulaEnd = novaLinha.insertCell();
+        var celulaRemover = novaLinha.insertCell();
+
+        celulaId.innerHTML = novoId;
+        celulaNomePet.innerHTML = nomepet;
+        celulaRaca.innerHTML = raca;
+        celulaDono.innerHTML = dono;
+        celulaTell.innerHTML = tell;
+        celulaEnd.innerHTML = end;
+        celulaRemover.innerHTML = "<button onclick='remover(this)'>Remover</button>";
+    }
+
+    function remover(botao){
+        var linha = botao.parentNode.parentNode;
+        linha.parentNode.removeChild(linha);
+    }
+
+</script>
+
+</body>
+
+</html>
